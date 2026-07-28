@@ -1,0 +1,81 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-alt: #273449;
+  --border: #334155;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --danger: #ef4444;
+  --radius: 10px;
+  --font: 'Inter', system-ui, sans-serif;
+}
+
+body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; }
+
+/* LOGIN */
+.login-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+.login-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 2.5rem; width: 100%; max-width: 380px; }
+.login-card h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.subtitle { font-size: 13px; color: var(--text-muted); margin-bottom: 1.5rem; }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-size: 13px; color: var(--text-muted); margin-bottom: 5px; }
+.form-group input { width: 100%; padding: 9px 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface-alt); color: var(--text); font-size: 14px; }
+.form-group input:focus { outline: none; border-color: var(--accent); }
+.btn-primary { width: 100%; padding: 10px; background: var(--accent); color: #fff; border: none; border-radius: var(--radius); font-size: 14px; font-weight: 500; cursor: pointer; margin-top: 4px; }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+.switch-link { text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 1rem; }
+.switch-link a { color: var(--accent); text-decoration: none; }
+.error-msg { background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4); color: #fca5a5; border-radius: var(--radius); padding: 8px 12px; font-size: 13px; margin-bottom: 1rem; }
+
+/* KANBAN */
+.kanban-page { min-height: 100vh; display: flex; flex-direction: column; }
+.kanban-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; background: var(--surface); border-bottom: 1px solid var(--border); }
+.header-left { display: flex; align-items: center; gap: 12px; }
+.kanban-header h1 { font-size: 18px; font-weight: 700; }
+.user-email { font-size: 13px; color: var(--text-muted); }
+.header-right { display: flex; gap: 8px; }
+.btn-logout { padding: 8px 14px; background: transparent; border: 1px solid var(--border); color: var(--text-muted); border-radius: var(--radius); font-size: 13px; cursor: pointer; }
+.btn-logout:hover { border-color: var(--danger); color: var(--danger); }
+
+/* FORM */
+.task-form-wrapper { padding: 1rem 1.5rem; background: var(--surface-alt); border-bottom: 1px solid var(--border); }
+.task-form { display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+.task-form input, .task-form textarea, .task-form select {
+  padding: 8px 12px; background: var(--surface); border: 1px solid var(--border);
+  color: var(--text); border-radius: var(--radius); font-size: 13px; font-family: var(--font);
+}
+.task-form input { flex: 1; min-width: 200px; }
+.task-form textarea { flex: 2; min-width: 250px; resize: none; }
+.task-form select { min-width: 160px; }
+.task-form .btn-primary { width: auto; margin-top: 0; }
+
+/* BOARD */
+.kanban-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding: 1.5rem; flex: 1; }
+.loading { text-align: center; padding: 3rem; color: var(--text-muted); }
+
+/* COLUMN */
+.column { background: var(--surface); border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; min-height: 400px; }
+.column-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem; border-bottom: 2px solid; }
+.column-header h3 { font-size: 14px; font-weight: 600; }
+.task-count { background: var(--surface-alt); color: var(--text-muted); font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 20px; }
+.column-body { padding: 0.75rem; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.empty-col { text-align: center; color: var(--text-muted); font-size: 13px; padding: 2rem 0; }
+
+/* TASK CARD */
+.task-card { background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.85rem; }
+.task-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.priorite-badge { font-size: 11px; font-weight: 600; color: #fff; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; }
+.delete-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 14px; padding: 2px 4px; }
+.delete-btn:hover { color: var(--danger); }
+.task-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+.task-desc { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; line-height: 1.5; }
+.task-actions { display: flex; gap: 6px; }
+.move-btn { font-size: 12px; padding: 4px 10px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); border-radius: var(--radius); cursor: pointer; }
+.move-btn:hover { border-color: var(--accent); color: var(--accent); }
+.move-btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.move-btn.primary:hover { background: var(--accent-hover); }
